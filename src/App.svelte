@@ -30,7 +30,7 @@
   // for test purpose
   onMount(async () => {
     try {
-      const res = await fetch("/test.pdf");
+      const res = await fetch("/welcome.pdf");
       const pdfBlob = await res.blob();
       await addPDF(pdfBlob);
       selectedPageIndex = 0;
@@ -198,8 +198,12 @@
 <Tailwind />
 <main class="flex flex-col items-center py-16 bg-gray-100 min-h-screen">
   <div
-    class="fixed z-10 top-0 left-0 right-0 h-12 flex justify-center items-center
+    class="fixed z-10 top-0 left-0 right-0 px-4 h-12 flex justify-center items-center
     bg-gray-200 border-b border-gray-300">
+    <div class="mr-10 align-middle">
+<!--      <h4>PDF Tools</h4>-->
+      <img src="/ic_launcher.png" style="width: 3rem; height: auto"/>
+    </div>
     <input
       type="file"
       name="pdf"
@@ -263,11 +267,6 @@
       class:bg-blue-700={pages.length === 0 || saving || !pdfFile}>
       {saving ? 'Saving' : 'Save'}
     </button>
-    <a href="https://github.com/ShizukuIchi/pdf-editor">
-      <img
-        src="/GitHub-Mark-32px.png"
-        alt="A GitHub icon leads to personal GitHub page" />
-    </a>
   </div>
   {#if addingDrawing}
     <div
@@ -360,4 +359,5 @@
       <span class=" font-bold text-3xl text-gray-500">Drag something here</span>
     </div>
   {/if}
+  <div style="width: 100vw; text-align: center">PDF tools - by <a href="https://twitter.com/ChesticleHunter" target="_blank">Kabeer</a></div>
 </main>
